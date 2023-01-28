@@ -14,28 +14,29 @@ void setup()
 
     Serial.begin(9600);
 
-#ifdef HAS_ON_SWITCH
+#if HAS_ON_SWITCH
     pinMode(ON_SWITCH_PIN, ON_SWITCH_MODE);
 #endif
 
-#ifdef HAS_BRIGHTNESS_POT
+#if HAS_BRIGHTNESS_POT
     pinMode(BRIGHTNESS_POT_PIN, BRIGHTNESS_POT_MODE);
 #endif
-
 }
 
 void loop()
 {
-    // put your main code here, to run repeatedly:
 
-#ifdef HAS_ON_SWITCH
+#if HAS_ON_SWITCH
     bool active = digitalRead(ON_SWITCH_PIN);
 #else
     bool active = true;
 #endif
 
-    // int brightness = analogRead(BRIGHTNESS_POT_PIN);
+#if HAS_BRIGHTNESS_POT
     int brightness = active ? analogRead(BRIGHTNESS_POT_PIN) : 0;
+#else
+    int brightness = DEFALUT_BRIGHTNESS
+#endif
 
     Serial.print("active: ");
     Serial.println(active);
