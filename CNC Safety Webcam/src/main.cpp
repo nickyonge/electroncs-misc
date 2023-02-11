@@ -1,13 +1,16 @@
 #include <Arduino.h>
 
-#if __has_include("privatedata.cpp")
-#include "privatedata.cpp"
+#if __has_include("privatedata.h")
+#include "privatedata.h"
+#else
+#include "privatedata-example.h"
 #endif
 
-void setup() {
-  // put your setup code here, to run once:
+#define ssid _wifi_ssid
+#define password _wifi_password
+
+void setup(){
 }
 
-void loop() {
-  // put your main code here, to run repeatedly:
+void loop(){
 }
