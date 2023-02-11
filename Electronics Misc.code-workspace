@@ -1,8 +1,12 @@
 {
 	"folders": [
-		{
-			"path": "."
-		}
+        {
+            "path": "."
+        },
+        {
+            "name": "CNC Safety Webcam",
+            "path": "CNC Safety Webcam"
+        }
     ],
     "settings": {}
 }
